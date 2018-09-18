@@ -1,8 +1,8 @@
 body{
     height: 98vh;
     width: auto;
-    grid-template-rows: 55px 1fr;
-    grid-template-columns: 80px 1fr;
+    grid-template-rows: 1fr;
+    grid-template-columns: 100px 1fr;
     display: grid;
     grid-row: span 1;
     grid-column: span 1;
@@ -10,9 +10,9 @@ body{
 }
 
 aside{
-    grid-row: span 2;
+    grid-row: span 1;
     grid-column: span 1;
-    background-color: gray;
+    background-color: #404244;
     text-align: center;
     font-weight: bold;
     color: white;
@@ -21,30 +21,40 @@ aside{
 }
 
 h1{
-    text-align: right;
     font-weight: bold;
-    font-size: 30px;
-    grid-row: span 1;
-    grid-column: span 1;
-    background-color: #4286f4;
-    color: white;
-    padding-right: 10px;
+    font-size: 13px;
     padding-top: 10px;
+}
+h2{
+    text-align: center;
+    font-weight: 400;
+    font-size: 40px;
+    color: white;
+    padding-top: 250px;
+    padding-bottom: 50px;
+}
+h3{
+    text-align: center;
+    font-weight: 400;
+    font-size: 12px;
+    color: white;
+}
+h4{
+    text-align: initial;
 }
 
 #content{
     width: auto;
     grid-row: span 1;
     grid-column: span 1;
-    font-weight: bold;
+    font-weight: 500;
     font-size: 20px;
     padding-top: 40px;
-}
-
-#queryButton{
-    position: relative;
-    left: 50%;
-    margin-left: 10px;
+    background-image: url("images/Sunset-Dunes.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    margin: 15px;
 }
 
 #line-break{
@@ -52,21 +62,17 @@ h1{
     left: 100px;
 }
 
-#innerContent{
-    position: relative;
-    left: 50%;
-    padding-top: 15px;
-}
+
 #userInput{
     position: relative;
-    left: 50%;
+    left: 30px;
 }
 .inputField{
     position: relative;
-    left: 50%;
+    left: 30px;
 }
 input{
-    border-radius: 10px;
+    border-radius: 2px;
     padding-left: 10px;
 }
 .command{
@@ -74,12 +80,46 @@ input{
     padding-bottom: 20px;
 }
 a:hover {
-    color: red;
+    color: white;
 }
 a:active {
     color: white;
 }
 a {
-    color: white;
+    color: gray;
     text-decoration: none;
+}
+
+.fa-address-book{
+    font-size: 30px;
+}
+.simplicity{
+    color: #f4d473;
+}
+#innerContent{
+    position: relative;
+    left: 30px;
+    padding-top: 15px;
+    color: white;
+    font-size: 14px;
+}
+.fa-search{
+    position: relative;
+    left: 30px;
+    margin-left: 10px;
+    color: white;
+    font-size: 14px;
+}
+.fa-search:hover{
+    color: orange;
+}
+.fas{
+    position: relative;
+    left: 30px;
+    margin-left: 10px;
+    color: white;
+    font-size: 14px;
+}
+.fas:hover{
+    color: orange;
 }

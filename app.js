@@ -41,16 +41,16 @@ const employeeList = [
   }
 ];
 
-const activeList = [];
-
 const print = function () {
   $('#content').empty();
+  $('#content').append(`<div id="innerContent"></div>`);
+  $('#innerContent').append(`<h4>The Minimalist's Directory.</h4>`);
   for (i = 0; i < employeeList.length; i++) {
     //create a div with each element of array
-    $('#content').append(`<div>${employeeList[i].name}</div>`);
-    $('#content').append(`<div>#${employeeList[i].officeNum}</div>`);
-    $('#content').append(`<div>${employeeList[i].phoneNum}</div>`);
-    $('#content').append(`<div><br></div>`);
+    $('#innerContent').append(`<div>Name: ${employeeList[i].name}</div>`);
+    $('#innerContent').append(`<div>Office Number: ${employeeList[i].officeNum}</div>`);
+    $('#innerContent').append(`<div>Phone: ${employeeList[i].phoneNum}</div>`);
+    $('#innerContent').append(`<div><br></div>`);
   }
 }
 
@@ -58,9 +58,9 @@ const verify = function (e) {
   $('#content').empty();
   e.preventDefault();
   $('#content').append(`<input id="userInput" placeholder="John">`);
-  $('#content').append(`<button id="queryButton">Verify</button><hr width="70%">`);
+  $('#content').append(`<a href="#"><i class="fas fa-search"></i></a>`);
   $('#content').append(`<div id="innerContent"></div>`);
-  $('#queryButton').on('click', innerVerify);
+  $('.fa-search').on('click', innerVerify);
 }
 
 const innerVerify = function (e) {
@@ -78,9 +78,9 @@ const lookup = function (e) {
   $('#content').empty();
   e.preventDefault();
   $('#content').append(`<input id="userInput" placeholder="John">`);
-  $('#content').append(`<button id="queryButton">Lookup</button><hr width="70%">`);
+  $('#content').append(`<a href="#"><i class="fas fa-search"></i></a>`);
   $('#content').append(`<div id="innerContent"></div>`);
-  $('#queryButton').on('click', innerLookup);
+  $('.fa-search').on('click', innerLookup);
 }
 
 const innerLookup = function (e) {
@@ -88,9 +88,9 @@ const innerLookup = function (e) {
   e.preventDefault();
   if (employeeList.some(e => e.name.toLowerCase() === $('#userInput').val().toLowerCase()) === true) {
     const employee = employeeList.find(e => e.name.toLowerCase() === $('#userInput').val().toLowerCase());
-    $('#innerContent').append(`<div>${employee.name}</div>`);
-    $('#innerContent').append(`<div>#${employee.officeNum}</div>`);
-    $('#innerContent').append(`<div>${employee.phoneNum}</div>`);
+    $('#innerContent').append(`<div>Name: ${employee.name}</div>`);
+    $('#innerContent').append(`<div>Office Number: ${employee.officeNum}</div>`);
+    $('#innerContent').append(`<div>Phone: ${employee.phoneNum}</div>`);
   }
   else {
     $('#innerContent').append(`<div>Employee Not Found</div>`);
@@ -101,9 +101,9 @@ const contains = function (e) {
   $('#content').empty();
   e.preventDefault();
   $('#content').append(`<input id="userInput" placeholder="jo">`);
-  $('#content').append(`<button id="queryButton">Contains</button><hr width="70%">`);
+  $('#content').append(`<a href="#"><i class="fas fa-search"></i></a>`);
   $('#content').append(`<div id="innerContent"></div>`);
-  $('#queryButton').on('click', innerContains);
+  $('.fa-search').on('click', innerContains);
 }
 
 const innerContains = function (e) {
@@ -111,9 +111,9 @@ const innerContains = function (e) {
   e.preventDefault();
   if (employeeList.some(e => e.name.toLowerCase().includes($('#userInput').val().toLowerCase())) === true) {
     const employee = employeeList.find(e => e.name.toLowerCase().includes($('#userInput').val().toLowerCase()));
-    $('#innerContent').append(`<div>${employee.name}</div>`);
-    $('#innerContent').append(`<div>#${employee.officeNum}</div>`);
-    $('#innerContent').append(`<div>${employee.phoneNum}</div>`);
+    $('#innerContent').append(`<div>Name: ${employee.name}</div>`);
+    $('#innerContent').append(`<div>Office Number: ${employee.officeNum}</div>`);
+    $('#innerContent').append(`<div>Phone: ${employee.phoneNum}</div>`);
   }
   else {
     $('#innerContent').append(`<div>Employee Not Found</div>`);
@@ -126,9 +126,9 @@ const update = function (e) {
   $('#content').append(`<div class='inputField'>Name <input id="nameInput" placeholder="Jan"></div>`);
   $('#content').append(`<div class='inputField'>Number <input id="numberInput" placeholder="123"></div>`);
   $('#content').append(`<div class='inputField'>Phone <input id="phoneInput" placeholder="123-456-7890"></div>`);
-  $('#content').append(`<button id="queryButton">Update</button><hr width="70%">`);
+  $('#content').append(`<a href="#"><i class="fas fa-pen"></i></a>`);
   $('#content').append(`<div id="innerContent"></div>`);
-  $('#queryButton').on('click', innerUpdate);
+  $('.fa-pen').on('click', innerUpdate);
 }
 
 const innerUpdate = function (e) {
@@ -138,9 +138,9 @@ const innerUpdate = function (e) {
     const index = employeeList.findIndex(e => e.name.toLowerCase() === $('#nameInput').val().toLowerCase());
     employeeList[index].officeNum = $('#numberInput').val();
     employeeList[index].phoneNum = $('#phoneInput').val();
-    $('#innerContent').append(`<div>${employeeList[index].name}</div>`);
-    $('#innerContent').append(`<div>#${employeeList[index].officeNum}</div>`);
-    $('#innerContent').append(`<div>${employeeList[index].phoneNum}</div>`);
+    $('#innerContent').append(`<div>Name: ${employeeList[index].name}</div>`);
+    $('#innerContent').append(`<div>Office Number: ${employeeList[index].officeNum}</div>`);
+    $('#innerContent').append(`<div>Phone: ${employeeList[index].phoneNum}</div>`);
   }
   else {
     $('#innerContent').append(`<div>Employee Not Found</div>`);
@@ -153,9 +153,9 @@ const add = function (e) {
   $('#content').append(`<div class='inputField'>Name <input id="nameInput" placeholder="David"></div>`);
   $('#content').append(`<div class='inputField'>Number <input id="numberInput" placeholder="123"></div>`);
   $('#content').append(`<div class='inputField'>Phone <input id="phoneInput" placeholder="123-456-7890"></div>`);
-  $('#content').append(`<button id="queryButton">Add</button><hr width="70%">`);
+  $('#content').append(`<a href="#"><i class="fas fa-plus-square"></i></a>`);
   $('#content').append(`<div id="innerContent"></div>`);
-  $('#queryButton').on('click', innerAdd);
+  $('.fa-plus-square').on('click', innerAdd);
 }
 
 const innerAdd = function (e) {
@@ -168,18 +168,18 @@ const innerAdd = function (e) {
     phoneNum: $('#phoneInput').val()
   };
   employeeList.push(employee);
-  $('#innerContent').append(`<div>${employeeList[employeeList.length - 1].name}</div>`);
-  $('#innerContent').append(`<div>#${employeeList[employeeList.length - 1].officeNum}</div>`);
-  $('#innerContent').append(`<div>${employeeList[employeeList.length - 1].phoneNum}</div>`);
+  $('#innerContent').append(`<div>Name: ${employeeList[employeeList.length - 1].name}</div>`);
+  $('#innerContent').append(`<div>Office Number: ${employeeList[employeeList.length - 1].officeNum}</div>`);
+  $('#innerContent').append(`<div>Phone: ${employeeList[employeeList.length - 1].phoneNum}</div>`);
 }
 
 const deleteFunc = function (e) {
   $('#content').empty();
   e.preventDefault();
   $('#content').append(`<input id="userInput" placeholder="John">`);
-  $('#content').append(`<button id="queryButton">Delete</button><hr width="70%">`);
+  $('#content').append(`<a href="#"><i class="fas fa-trash-alt"></i></a>`);
   $('#content').append(`<div id="innerContent"></div>`);
-  $('#queryButton').on('click', innerDeleteFunc);
+  $('.fa-trash-alt').on('click', innerDeleteFunc);
 }
 
 const innerDeleteFunc = function (e) {
